@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.2. Supported formats of the report results</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="spreadsheets,opened,richtext,printpdf,reader,makes,designed,scroll,which,navigator,resolution,previewing,connection,since,components,images,transferred,cases,printing,appropriate,tfrxreportclient,between,transaction,during,format,fastreport,native,report,formats" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.2. Supported formats of the report results</font>
+<FONT FACE="Arial" SIZE=2>
+<p>FR3 is a native FastReport 3 format. It is represented as a XML document. FR3 is used during transaction between TfrxReportServer and TfrxReportClient. This format is the most appropriate one for document printing. In most cases, use of this format reduces both transaction time and size of the transferred files (except reports containing high quality images).</p><p>It is undesirable to use additional compression components (TfrxGZipCompressor) on server side, since it reduces overall server performance, especially when the traffic compression option is activated (TfrxReportServer.Configuration.Compression := True; TfrxReportClient.Connection.Compression := True).</p><p>HTML format used by most web-sites in the Internet network is intended for previewing document in low resolution. It is quite difficult to perform high-quality printing of document using this format. HTML format is convenient for most web-browsers. If you use a web-browser as a client, then this format is appropriate for you (see details in <a href="../Report%20client/Other%20clients.htm">topic 5.2</a>). 
+FastReport server creates web pages with a report navigator, with the help of which you can scroll the pages.</p></p><p><img src="../image/freepm_032.gif" width="273" height="170" border="0">
+<p>PDF format by Adobe is designed specially for documents intended for printing.</p><p>FastReport makes high-quality export to this format. For viewing and printing PDF documents, you should install Adobe Acrobat Reader program on your computer.</p><p>If property "TfrxReportServer.PrintPDF := True" is set, then, during previewing HTML pages with report results, a file in this format is generated (by pressing the "Print" button on report navigator panel).</p><p><img src="../image/freepm_033.gif" width="280" height="203" border="0"></p><p>The Server also supports the following formats:</p><p>- RTF format. A RichText document can be opened in most text processors;</p><p>- XLS and XML. These are the Excel spreadsheets formats;</p><p>- text file (required for dot-matrix printing);</p><p>- graphic file jpeg.</p><p>The set of the formats allowed to use in queries is configured by the "TfrxReportServer.Configuration.OutputFormats" property, which may contain one or several values from the following set: sfHTM - HTML format, sfXML - XML format, sfXLS - Excel format, sfRTF - RichText format, sfTXT - text file, sfPDF - Adobe Acrobat format, sfJPG - jpeg picture, sfFRP - native FastReport 3 (FR3) format.</p><p>If type of a returned format is not specified during request, then the server generates the result in HTML format.</p>
+</FONT>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Internal architecture.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Query syntax.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+
+</BODY>
+</html>

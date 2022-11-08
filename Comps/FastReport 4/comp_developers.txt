@@ -1,0 +1,15 @@
+This file describes changes in FastReport 4 related to custom components 
+development.
+
+- The component icon size is 16x16 pixels.
+
+- There is no toolbar categories (frxObjects.RegisterCategory) in FastReport 4. 
+However you may still use it.
+
+- You don't need to use FImageIndex or Bitmap in non-visual components 
+(TfrxDialogComponent ancestors). It's enough to setup an icon when registering
+the component (frxObjects.Register). This icon will be used to draw a component.
+
+- The wizard's icon size is 16x16 pixels for toolbar wizard and 32x32 pixels
+for File|New... wizard.
+

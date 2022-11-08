@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.5. Internal server variables</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="getvalue,frrepotserver1,totals,variable,getting,example,generations,report,server_max_reports,simultaneous,number,maximal,server_max_sessions,errors,server_total_errors,reports,server_total_reports,sessions,total,server_total_sessions,server_uptime,update,server_last_update,version,server_software,copyright,server_copyright,server_name,updated,created,automatically,following,contains,property,variables,tfrxreportserver,working,during,server,internal" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.5. Internal server variables</font>
+<FONT FACE="Arial" SIZE=2>
+<p>During server's working, the "TfrxReportServer.Variables" property contains the following automatically created and updated variables:</p><p>SERVER_NAME - server name;</p><p>SERVER_COPYRIGHT - copyright;</p><p>SERVER_SOFTWARE - server version;</p><p>SERVER_LAST_UPDATE -last update date;</p><p>SERVER_UPTIME - up time of the server;</p><p>SERVER_TOTAL_SESSIONS - sum total of sessions;</p><p>SERVER_TOTAL_REPORTS - sum total of reports;</p><p>SERVER_TOTAL_ERRORS - sum total of errors;</p><p>SERVER_MAX_SESSIONS - maximal number of simultaneous sessions;</p><p>SERVER_MAX_REPORTS - maximal number of simultaneous report generations.</p><p><i>Example of getting a variable SERVER_TOTAL_REPORTS:</i></p><p>Totals := frRepotServer1.Variables.GetValue('SERVER_TOTAL_REPORTS');</p>
+</FONT>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Transferring parameters to the report.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Using HTML documents.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

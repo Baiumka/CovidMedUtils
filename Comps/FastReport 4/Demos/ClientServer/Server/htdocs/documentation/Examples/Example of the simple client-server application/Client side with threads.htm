@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>7.1.3. Client side with threads</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="proxyport,proxyhost,compression,password,login,strtoint,frxserverconnection1,synchronize,terminated,memo1,server,inherited,string,repname,tfrxserverconnection,create,constructor,report,finishlog,appendlog,threadid,tmemo,errorscount,integer,countrep,override,execute,procedure,tfrxclienttestthread,class,thread,threads,tfrxreportclient,example,client" >
+
+<style>
+.text {font-family: Courier; font-size: 12px; color: #000080;}
+</style>
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>7.1.3. Client side with threads</font>
+<FONT FACE="Arial" SIZE=2>
+<p>You can find all source files of this example in the <br>"\FastReport 3\Demos\ClientServer\Client\Advanced" folder.</p><p>This example shows how you can use the "TfrxReportClient" component in the threads.</p><p><img src="../../image/freepm_042.gif" width="292" height="321" border="0"></p><p>Thread class:</p><p class="text">TfrxClientTestThread = class (TThread)</p><p class="text">protected<dir class="text">procedure Execute; override;</dir></p><p class="text">private<dir class="text">CountRep: Integer;</p><p class="text">ErrorsCount: Integer;</p><p class="text">Log: TMemo;</p><p class="text">ThreadID: Integer;</p><p class="text">procedure AppendLog;</p><p class="text">procedure FinishLog;</dir></p><p class="text">public<dir class="text">Report: TfrxReportClient;</p><p class="text">constructor Create(C: TfrxServerConnection; RepName: String;</p><p class="text">Id: Integer; Rep: Integer; L: TMemo);</p><p class="text">destructor Destroy; override;</dir></p><p class="text">end;</p><p>Constructor of the TfrxClientTestThread class:</p><p class="text">constructor TfrxClientTestThread.Create(C: TfrxServerConnection; RepName: String;<dir class="text">Id: Integer; Rep: Integer; L: TMemo);</dir></p><p class="text">begin<dir class="text">inherited Create(True);</p><p class="text">FreeOnTerminate := False;</p><p class="text">ErrorsCount := 0;</p><p class="text">ThreadId := Id;</p><p class="text">CountRep := Rep;</p><p class="text">Log := L;</p><p class="text">Report := TfrxReportClient.Create(nil);</p><p class="text">Report.EngineOptions.ReportThread := Self;</p><p class="text">Report.Connection := C;</p><p class="text">Report.ReportName := RepName;</p><p class="text">Resume;</dir></p><p class="text">end;</p>
+<p>The method TfrxClientTestThread.Execute sends a request to the CountRep server. All resulting information is displayed in Memo1 by the "AppendLog" and "FinishLog" methods:</p><p class="text">procedure TfrxClientTestThread.Execute;</p><p class="text">var<dir class="text">i: Integer;</dir></p><p class="text">begin<dir class="text">inherited;</p><p>for i := 1 to CountRep do</p><p class="text">begin<br><br><dir class="text">if Terminated then break;</p><p>Report.PrepareReport;</p><p>if not Terminated then</p><p class="text">begin<br><br><dir class="text">Synchronize(AppendLog);</p><p>ErrorsCount := ErrorsCount + Report.Errors.Count;</dir></p><p class="text">end;</dir></p><p class="text">end;</p><p class="text">Synchronize(FinishLog);</dir></p><p class="text">end;</p><p>Before starting this program, launch the server application described above (topic 7.1.1.)</p><p>On press button "Thread test" execute the code below:</p><p class="text">procedure TMainForm.TestBtnClick(Sender: TObject);</p><p class="text">var<dir class="text">i, j, k: Integer;</p><p>Thread: TfrxClientTestThread;</dir></p><p class="text">begin<dir class="text">frxServerConnection1.Host := Host.Text;</p><p>frxServerConnection1.Port := StrToInt(Port.Text);</p><p>frxServerConnection1.Login := Login.Text;</p><p>frxServerConnection1.Password := Password.Text;</p><p>frxServerConnection1.Compression := Compression.Checked;</p><p>if (Length(ProxyHost.Text) > 0) then</p><p>begin<br><br><dir class="text">frxServerConnection1.PrxoyHost := ProxyHost.Text;</p><p>frxServerConnection1.ProxyPort := StrToInt(ProxyPort.Text);</dir></p><p>end;</p><p>ClearThreads;</p><p>Memo1.Lines.Add('Start test');</p><p>j := StrToInt(Threads.Text);</p><p>k := StrToInt(Rep.Text);</p><p>for i := 1 to j do</p><p>begin<br><br><dir class="text"></p><p>Thread := TfrxClientTestThread.Create(frxServerConnection1,<br><br><dir class="text">ReportsList[ListBox1.ItemIndex], i, k, Memo1);</dir></p><p>ThreadList.Add(Thread);</dir></p><p>end;</dir></p><p class="text">end;</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Client side.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="../../Important security issues.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</BODY>
+</html>

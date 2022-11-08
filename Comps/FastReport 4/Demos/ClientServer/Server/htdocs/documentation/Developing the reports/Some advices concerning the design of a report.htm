@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>4.2. Some advices concerning the design of a report</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="following,clipping,would,align,alignment,intersection,intend,limitations,increased,necessary,intersect,convert,filters,export,excel,there,layout,while,cells,server,reports,representation,style,table,formats" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>4.2. Some advices concerning the design of a report</font>
+<FONT FACE="Arial" SIZE=2>
+<p>Many of the document formats use table-style data representation. For representing of resulting reports, the server uses such formats as HTML, XLS, and RTF.</p><p>Table-style documents cannot have intersected cells, while FastReport document can. FastReport uses free-form data layout - there is no "lines", "table cells" like in Word, Excel or other such formats. FastReport export filters for table-style formats (RTF, HTML, and XLS) uses special algorithm to convert intersected cells into table cells and optimally arranges them. In places where FastReport objects intersect with each other, export filter may generate additional table rows and columns. It is necessary for better WYSIWYG, but may result in increased number of rows and columns in a resulting layout, which makes the table layout unusable for further analysis and slows down the export process.</p><p>Keep in mind these export limitations when developing a report, if you intend to export your report into such table-style formats. To avoid the objects' intersection, use alignment tools of the FastReport designer. Turn on the "grid align" option.</p><p>When creating tables in a report, put the table cells side-by-side, if possible, and avoid cells' intersection. If cells are intersected, the export algorithm would make clipping, and the export result may differ from the original report.</p><p>If possible, place objects along the horizontal and vertical guide lines. Use designer's guide lines to do this.</p><p>Following these instructions would help your reports to look perfect during exporting to any of the supported formats.</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Some client-server restrictions.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="../Report client/Report client.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</BODY>
+</html>

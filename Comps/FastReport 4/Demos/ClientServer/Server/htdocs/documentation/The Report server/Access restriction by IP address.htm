@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.9. Access restriction by IP address</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="allowp,cannot,range,local,examples,supported,masks,addresses,checks,included,connected,contains,while,connect,clients,empty,lists,example,allowed,allowip,restricted,contain,denyip,tfrxreportserver,property,address,client,supports,server,restriction,access" >
+
+<style>
+.text {font-family: Courier; font-size: 12px; color: #000080;}
+</style>
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.9. Access restriction by IP address</font>
+<FONT FACE="Arial" SIZE=2>
+<p>The Server supports the restriction by client IP address.</p>
+<p>Property TfrxReportServer.DenyIP can contain list of the restricted client IPs'.</p>
+<p>Property TfrxReportServer.AllowIP can contain list of the allowed client IPs'.Each list must contain one IP address in one line.Here is an example of such list:</p>
+<p class="text">192.168.0.10</p><p class="text">192.168.0.12</p>
+<p class="text">192.168.0.54</p>
+<p>If the "DenyIP" and "AllowIP" lists are empty, then all clients are allowed to connect to the server.</p>
+<p>If the "DenyIP" list is empty, while the "AllowIP" list contains an IP address, then only one client with this IP address can connect to the server.</p>
+<p>If the IP address of a connected client is not included in the "DenyIP" list, then the server checks if this address is included in the "AllowIP" list.</p>
+<p>IP addresses' masks are not supported.</p>
+<p><b>Examples:</b></p>
+<p>1. Only local host can connect to the server:</p>
+<p>AllowIP:</p>
+<p class="text">127.0.0.1</p>
+<p>DenyIP is empty.</p><p>2. IP addresses  192.168.0.2 - 192.168.0.6 can connect to the server.</p>
+<p>AllowIP:</p><p class="text">192.168.0.2</p>
+<p class="text">192.168.0.3</p><p class="text">192.168.0.4</p><p class="text">192.168.0.5</p><p class="text">192.168.0.6</p><p>DenyIP is empty.</p><p>2. IP addresses from range 192.168.0.8 - 192.168.0.10 cannot be connected to the server.</p><p>AllowP is empty.</p><p>DenyIP:</p><p class="text">192.168.0.8</p><p class="text">192.168.0.9</p><p class="text">192.168.0.10</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Authentication.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Database connections.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

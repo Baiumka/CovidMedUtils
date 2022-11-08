@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>7.1.1. Server side</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="create,frreport1,powerful,denyip,application,apppath,store,denyfile,starts,program,after,deny_file,lines,allow,names,defaultlatency,delay,integrity,compression,rootpath,public,reportpath,maxlogfles,writelogs,indexfilename,sessiontimeout,session,which,stored,connection,database,tfrxreportserver,component,components,folder,fastreport,files,server" >
+
+<style>
+.text {font-family: Courier; font-size: 12px; color: #000080;}
+</style>
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>7.1.1. Server side</font>
+<FONT FACE="Arial" SIZE=2>
+<p>You can find all source files of this example in the \FastReport 3\Demos\ClientServer\Server folder.</p><p>Components used in this demo: server component TfrxReportServer (Serv), database connection component TADOConnection and TfrxADOComponents, along with other add-on FastReport components.</p><p><img src="../../image/freepm_039.gif" width="259" height="249" border="0"></p><p>For the convenience of clients, data about configuration of the server is stored in a file, which is editable by the built-in editor.</p><p>File server.conf:</p><p class="text">[Server]</p><p class="text">; TCP/IP port for HTTP server</p><p class="text">Port=80</p><p class="text">; report session timeout in seconds</p><p class="text">SessionTimeOut=600</p><p class="text">; client connection timeout in seconds</p><p class="text">SocketTimeOut=600</p><p class="text">; index page filename</p><p class="text">IndexFileName=index.html</p><p class="text">; path to folder with logs</p><p class="text">LogPath=.\logs\</p><p class="text">; enable of log writing</p><p class="text">WriteLogs=1</p><p class="text">; maximum log files in history</p><p class="text">MaxLogFles=5</p><p class="text">; maximum log file size</p><p class="text">MaxLogSize=1024</p><p class="text">; path to folder with the reports (*.fr3)</p><p class="text">ReportPath=.\reports\</p><p class="text">; public document folder for documents and results</p><p class="text">RootPath=.\htdocs\</p><p class="text">; disable of the caching document by the web browser</p><p class="text">NoCacheHeader=1</p><p class="text">; GZIP compression enable</p><p class="text">Compression=1</p><p class="text">; MD5 message integrity check</p><p class="text">MIC=1</p><p class="text">; user login</p><p class="text">Login=</p><p class="text">; user password</p><p class="text">Password=</p><p class="text">[ReportsCache]</p><p class="text">; enable caching of the reports with same params</p><p class="text">Enabled=1</p><p class="text">; path to chache folder</p><p class="text">CachePath=.\cache\</p><p class="text">; dafault delay for cache of the report results in seconds</p><p class="text">DefaultLatency=300</p><p class="text">[ReportsLatency]</p><p class="text">; cache delay for the 1.fr3 report in seconds</p><p class="text">1.fr3=10</p><p class="text">; cache delay for the 1.fr3 report in seconds</p><p class="text">2.fr3=20</p><p class="text">; add below the any reports for the custom cache delay setup</p><p>Fields of the configuration file correspond to fields' names of the "TfrxReportServer.Configuration" property.</p><p>The "allow.conf" and "deny.conf" files contain lines with allowed and restricted addresses respectively.</p><p>Database file is stored in the "\database" folder.</p><p>In the main module, the constants with names of configuration files are defined:</p><p class="text">const<dir class="text">CONFIG_FILE = 'server.conf';<p>ALLOW_FILE =  'allow.conf';</p><p>DENY_FILE =   'deny.conf';</p></dir></p><p>After program starts, the database is connected via the MicrosoftJet OLE DB interface.</p><p>In variables ConfFile, AllowFile, DenyFile we a store path to configuration files:</p><p class="text">AppPath := ExtractFilePath(Application.ExeName);</p><p class="text">ConfFile := AppPath + CONFIG_FILE;</p><p class="text">AllowFile := AppPath + ALLOW_FILE;</p><p class="text">DenyFile := AppPath + DENY_FILE;</p><p>Load config files to the Serv component:</p><p class="text">Serv.Configuration.LoadFromFile(ConfFile);</p><p class="text">Serv.AllowIP.LoadFromFile(AllowFile);</p><p class="text">Serv.DenyIP.LoadFromFile(DenyFile);</p><p>Execute the server:</p><p class="text">Serv.Open;</p><p>After all work is done, you are ready to use a powerful report server. Launch the any web browser and type <a href="http://127.0.0.1">http://127.0.0.1</a> in address line</p><p><img src="../../image/freepm_040.gif" width="296" height="227" border="0"></p><p>You can design reports with the help of the internal FastReport designer:</p><p class="text">OpenDialog1.InitialDir := Serv.Configuration.ReportPath;</p><p class="text">if OpenDialog1.Execute then</p><p class="text">begin<dir class="text">frReport1 := TfrxReport.Create(nil);</p><p class="text">frReport1.LoadFromFile(OpenDialog1.FileName);</p><p class="text">frReport1.DesignReport;</p><p class="text">frReport1.Free;</dir></p><p class="text">end;</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Example of a simple client-server application.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Client side.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</BODY>
+</html>

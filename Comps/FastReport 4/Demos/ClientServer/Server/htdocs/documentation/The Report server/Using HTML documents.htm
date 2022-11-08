@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.6. Using HTML documents</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="server_total_reports,server_total_sessions,sessions,uptime,width,right,align,variable,value,header,example,position,current,filename,description,commands,correspondingly,indexfilename,specified,default,rootpath,configuration,tfrxreportserver,property,folder,documents,server" >
+
+<style>
+.text {font-family: Courier; font-size: 12px; color: #000080;}
+</style>
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.6. Using HTML documents</font>
+<FONT FACE="Arial" SIZE=2>
+<p>The Server can be used as a simple HTTP server for viewing any HTML documents or any other files.</p><p>Place the HTML documents to any folder, and then correctly set the property   TfrxReportServer.Configuration.RootPath.</p><p>Name of the default document must be specified in the TfrxReportServer.Configuration.IndexFileName property (default index.html). Correspondingly, a document with this name must exist in the root folder.</p><p><strong>SSI (Server Side Include) commands description.</strong></p><p><em>Include any file in document.</em></p><p>&lt;!--#include virtual="filename.html" --&gt;</p><p>Include the file with name filename.html in current document position. Path to file is specified from RootPath.</p><p>Example:</p><p class="text">&lt;!--#include virtual="header.html" --&gt; || Command line help</p><p class="text">&lt;!--#include virtual="top.html" --&gt;</p><p class="text">&lt;font face="Tahoma" size="3"&gt;&lt;a href="index.html"&gt;&lt;b>Back to main page&lt;/b&gt;&lt;/a&gt;&lt;b&gt;&lt;br&gt;</p><p class="text">&lt;/b&gt;&lt;/font&gt;</p><p class="text">&lt;hr&gt;</p><p class="text">...</p><p><em>Insert value of server variable.</em></p><p>&lt;!--#echo var="VARIABLE"--&gt;</p><p>Insert the value of variable with the "VARIABLE" name in current document position.</p><p>Example:</p><p class="text">...</p><p class="text">&lt;tr&gt;	&lt;td align="right" width="200"&gt;&lt;b&gt;Uptime:&lt;/b&gt;&lt;/td&gt;</p><p class="text">&lt;td width="300"&gt;&lt;!--#echo var="SERVER_UPTIME"--&gt;&lt;/td&gt;&lt;/tr&gt;</p><p class="text">&lt;tr&gt;	&lt;td align="right"&gt;&lt;b&gt;Total sessions:&lt;/b&gt;&lt;/td&gt;</p><p class="text">&lt;td&gt;&lt;!--#echo var="SERVER_TOTAL_SESSIONS"--&gt;&lt;/td&gt;&lt;/tr&gt;</p><p class="text">&lt;tr&gt;	&lt;td align="right"&gt;&lt;b&gt;Total reports:&lt;/b&gt;&lt;/td&gt;</p><p class="text">&lt;td&gt;&lt;!--#echo var="SERVER_TOTAL_REPORTS"--&gt;&lt;/td&gt;&lt;/tr&gt;</p><p class="text">&lt;tr&gt;	&lt;td align="right"&gt;&lt;b&gt;Max sessions:&lt;/b&gt;&lt;/td&gt;</p><p class="text">&lt;td&gt;&lt;!--#echo var="SERVER_MAX_SESSIONS"--&gt;&lt;/td&gt;&lt;/tr&gt;</p><p class="text">&lt;tr&gt;	&lt;td align="right"&gt;&lt;b&gt;Max reports:&lt;/b&gt;&lt;/td&gt;</p><p class="text">&lt;td&gt;&lt;!--#echo var="SERVER_MAX_REPORTS"--&gt;&lt;/td&gt;&lt;/tr&gt;</p><p class="text">...</p><p>Use of SSI commands optimizes website development.</p><p>Example of the site with SSI you can see in the "\FastReport 3\Demos\ClientServer\Server\htdocs" folder.</p>
+</FONT>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Internal server variables.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Logs.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

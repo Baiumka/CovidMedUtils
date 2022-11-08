@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.11. Using the reports cache</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="defaultlatency,results,enabled,false,reportcaching,become,would,enough,activity,period,storage,requested,format,client,during,report,cache,result,after,configuration,depending,server,prepared,caching,reports" >
+
+<style>
+.text {font-family: Courier; font-size: 12px; color: #000080;}
+</style>
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.11. Using the reports cache</font>
+<FONT FACE="Arial" SIZE=2>
+<p>Caching of reports allows achieving high efficiency because of saving prepared reports in temporary files of the server. Depending on server configuration, after preparation the result can be placed in cache.</p><p>After specified time, the result of the report will be removed from the cache.</p><p>If during this time a query with the <em>same name of the report and the same values of parameters</em> is received from a client, the response will be immediately returned to it. The reply will be based on the result saved in cache, and will be represented in the format requested by the client.</p><p>In that case, the server will waste time only on conversion of the prepared report in the requested format without building a report. It considerably increases the productivity.</p><p>Depending on tasks performed by a server, it is possible to assign an individual storage time in cache for each particular report.</p><p>Time value is set by the administrator of a server, according to actuality of a report, after certain period of time.</p><p>For example, the annual report about activity of an enterprise can be stored in cache long enough, since the information will be relevant for a long period of time, and it would not become outdated very soon. On the contrary, a report about a large commercial organization warehouse would be relevant during a small period, and therefore it consequently should be stored in cache not too long.</p><p>Reports cache properties:</p><p>TfrxServer.Configuration.ReportCaching - enable the cache (True/False);</p><p>TfrxServer.Configuration.ReportCachePath - path to the cache folder;</p><p>TfrxServer.Configuration.DefaultCacheLatency - latency timeout, default setting is 300 seconds.</p><p>Server configurations file parameters:</p><p class="text">[ReportsCache]</p><p class="text">; enable caching of the reports with same params</p><p class="text">Enabled=1</p><p class="text">; path to chache folder</p><p class="text">CachePath=.\cache\</p><p class="text">; dafault delay for cache of the report results in seconds</p><p class="text">DefaultLatency=300</p><p>The additional section of a configuration file of a server [ReportsLatency] is for customization of a storage time in cache results of one or another report:</p><p class="text">[ReportsLatency]</p><p class="text">; cache delay for the 1.fr3 report in seconds
+</p><p class="text">1.fr3=10</p><p class="text">; cache delay for the 2.fr3 report in seconds
+</p><p class="text">2.fr3=20</p><p class="text">; add below the any reports for the custom cache delay setup</p><p>Correction of parameters configuration will minimize time of working clients and will reduce total traffic on the server.</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Database connections.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Increasing servers processing power.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

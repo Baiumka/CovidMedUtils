@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.1. Internal architecture</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="according,inquired,saves,format,native,tfrxreportclient,redirection,waits,exports,prepares,parameters,delivers,instance,fastreport,browser,transaction,overview,graphical,stored,resulting,receives,number,saved,after,special,query,report,sends,client,request,created,server,displays,internal" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.1. Internal architecture</font>
+<FONT FACE="Arial" SIZE=2>
+<p>The scheme displays the server's internal structure:</p>
+<p><img src="../image/freepm_008.gif" width="465" height="731" border="0"></p>
+<p>The sessions with unique identifier are created when a request from client comes. 
+The line of the request is analyzed. If the requested file exists, then the server sends 
+a positive response with the file to the client. Logs are updated with new record about this event. 
+If the request contains the report query, then a special report session is created. 
+After the report is built, the result is saved to folder with session number as a name. 
+The server responses to the client, and reports a new file location. 
+The client sends a new request to the new file location, and receives the file with the result. 
+Session with the resulting file is stored by server until session time expires.</p>
+<i><p>Below is a step-by-step graphical overview of the report query transaction with the web browser:</p></i>
+
+<p>- client sends query; the report's title is "1.fr3"</p>
+<p><img src="../image/freepm_009.gif" width="489" height="90" border="0"></p>
+<p>- the server creates a new FastReport instance and delivers parameters of the request</p>
+<p><img src="../image/freepm_010.gif" width="504" height="90" border="0"></p>
+<p>- FastReport prepares the report and exports results to a html file into the folder, the name of the folder is the same as the session's number</p>
+<p><img src="../image/freepm_011.gif" width="330" height="90" border="0"></p>
+<p>- server waits for the results from FastReport</p>
+<p><img src="../image/freepm_012.gif" width="504" height="90" border="0"></p>
+<p>- client receives redirection to the location of the resulting file</p>
+<p><img src="../image/freepm_013.gif" width="489" height="90" border="0"></p>
+<p>- client sends a new query with the request of results file</p>
+<p><img src="../image/freepm_014.gif" width="489" height="90" border="0"></p>
+<p>- server delivers the resulting file to the client</p>
+<p><img src="../image/freepm_015.gif" width="489" height="90" border="0"></p>
+<i><p>Step-by-step graphical overview of the report query transaction with the FastReport (TfrxReportClient):</p></i>
+<p>- a client wants to show report "1.fr3":</p>
+<p><img src="../image/freepm_016.gif" width="190" height="69" border="0"></p>
+<p>- client component sends a query with the name of report "1.fr3" (native result format)</p>
+<p><img src="../image/freepm_017.gif" width="489" height="90" border="0"></p>
+<p align="center"><font size="+3"><b>...</b></font></p>
+<p>- FastReport prepares the report and saves the results to a native fp3; the name of the folder is the same as the session's number</p>
+<p><img src="../image/freepm_018.gif" width="355" height="90" border="0"></p>
+<p>- server waits for the results from FastReport</p>
+<p><img src="../image/freepm_019.gif" width="504" height="90" border="0"></p>
+<p>- client receives redirection to the location of the resulting file</p>
+<p><img src="../image/freepm_020.gif" width="489" height="90" border="0"></p>
+<p align="center"><font size="+3"><b>...</b></font></p>
+<p>- server sends the result file to the client</p>
+<p><img src="../image/freepm_021.gif" width="489" height="90" border="0"></p>
+<p>- client displays the report</p>
+<p><img src="../image/freepm_022.gif" width="335" height="82" border="0"></p>
+<i><p>If the inquired report contains any forms, the process becomes more complicated:</p></i>
+<p>- client client component sends a query with the name of report "1.fr3"</p>
+<p><img src="../image/freepm_023.gif" width="489" height="90" border="0"></p>
+<p>- the server creates a new FastReport instance and transfers parameters of the request</p>
+<p><img src="../image/freepm_024.gif" width="504" height="90" border="0"></p>
+<p>- FastReport prepares report and saves the web-form into the folder name according to the session number</p>
+<p><img src="../image/freepm_025.gif" width="320" height="90" border="0"></p>
+<p>- server wait the results from FastReport</p>
+<p><img src="../image/freepm_026.gif" width="504" height="90" border="0"></p>
+<p>- server redirects the client to the web-form file</p>
+<p><img src="../image/freepm_027.gif" width="489" height="90" border="0"></p>
+<p>- client receives the web-form, while FastReport waits</p>
+<p><img src="../image/freepm_028.gif" width="493" height="119" border="0"></p>
+<p>- client sends of the web-form dialog controls states to the server</p>
+<p><img src="../image/freepm_029.gif" width="489" height="90" border="0"></p>
+<p>- the server transfers the values of the control elements to the server</p>
+<p><img src="../image/freepm_030.gif" width="505" height="90" border="0"></p>
+<p>- server delivers the received information to FastReport</p>
+<p><img src="../image/freepm_031.gif" width="489" height="111" border="0"></p>
+<p>Format of the server request line, logging, authentication and other issues concerning server's functioning, are described below.</p>
+</FONT>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="The Report server.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Supported formats of the report results.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</font>
+</BODY>
+</html>

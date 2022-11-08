@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.7. Logs</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="archive,forget,reports,error,errors,referer,referencing,windows,compatible,agent,result,session,information,contains,server,property,configuration,tfrxreportserver" >
+
+<style>
+.text {font-family: Courier; font-size: 12px; color: #000080;}
+</style>
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.7. Logs</font>
+<FONT FACE="Arial" SIZE=2>
+<p>If the TfrxReportServer.Configuration.Logging property setting is "True," then the server writes logs to folder described in the "TfrxReportServer.Configuration.LogPath" property.</p><p>The server supports 5 logs:<br>- log of the accessed clients "access.log" - contains information about date, time, session id, IP and query line. Log fragment:</p><p class="text">10/26/2004 23:56:19 sid_f1672494035&nbsp;&nbsp;&nbsp;&nbsp;192.168.0.2&nbsp;&nbsp;result?report=3.fr3:</p><p class="text">10/26/2004 23:56:23 sid_f1340767011&nbsp;&nbsp;&nbsp;&nbsp;192.168.0.2&nbsp;&nbsp;sid_f1672494035/index.html:</p><p class="text">10/26/2004 23:56:23 sid_f1949776310&nbsp;&nbsp;&nbsp;&nbsp;192.168.0.2&nbsp;&nbsp;sid_f1672494035/index.nav.html:</p><p class="text">10/26/2004 23:56:23 sid_f1150188690&nbsp;&nbsp;&nbsp;&nbsp;192.168.0.2&nbsp;&nbsp;sid_f1672494035/index.1.html</p><p>- log of the connected program type "agent.log", contains information about date, time, IP, and program name. Log fragment:</p><p class="text">10/26/2004 23:56:19 192.168.0.2 Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</p><p class="text">10/26/2004 23:56:23 192.168.0.2 Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</p><p class="text">10/26/2004 23:56:23 192.168.0.2 Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</p><p>- log of the referencing URLs "referer.log", contains information about date, time, IP and referencing URL. Log fragment:</p><p class="text">10/26/2004 23:56:19	192.168.0.2&nbsp;&nbsp;http://192.168.0.1/</p><p class="text">10/26/2004 23:56:23	192.168.0.2&nbsp;&nbsp;http://192.168.0.1/</p><p class="text">10/26/2004 23:56:23	192.168.0.2&nbsp;&nbsp;http://192.168.0.1/sid_f1672494035/index.html</p><p>- errors log "error.log", contains information about errors:</p><p class="text">10/25/2004 13:30:52&nbsp;192.168.0.2&nbsp;&nbsp;588864044016/index.1.html document not found</p><p class="text">10/26/2004 0:03:11&nbsp;&nbsp;192.168.0.2&nbsp;&nbsp;Software caused connection abort.(10053)</p><p class="text">10/26/2004 0:43:42&nbsp;&nbsp;192.168.0.2&nbsp;&nbsp;Connection reset by peer.(10054)</p><p>- server log "server.log", contains summary server information:</p><p class="text">10/25/2004 19:38:15	Started</p><p class="text">10/25/2004 19:38:15	HTTP server created</p><p class="text">10/25/2004 19:58:57	HTTP server closed</p><p class="text">10/25/2004 19:58:57	Stopped</p><p class="text">Uptime: 0 days 0 hours 20 minutes 42 seconds</p><p class="text">Total sessions: 654</p><p class="text">Total reports: 327</p><p class="text">Total errors: 0</p><p class="text">Max sessions: 84</p><p class="text">Max reports: 42</p><p>Do not forget to archive the log files.</p>
+</FONT>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Using HTML documents.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Authentication.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>2.4. TfrxHTTPClient</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="actual,blank,qtget,password,authentication,filename,compression,disconnect,connect,procedure,errors,server,received,automatically,tstrings,checksum,answer,parsed,tfrxhttpserverfields,serverfields,below,described,header,request,fields,tfrxhttpclientfields,clientfields,seconds,retry,proxy,integer,default,address,string,query,boolean,properties,inherited,class,protocol,client,tfrxhttpclient" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>2.4. TfrxHTTPClient</font><FONT FACE="Arial" SIZE=2><p><img src="../image/freepm_007.png" width="24" height="24" border="0">&nbsp;TfrxHTTPClient - client component for receiving any file via HTTP protocol.</p><p><strong>TfrxHTTPClient class inherited from TComponet</strong></p><p><strong><em>Properties:</em></strong></p><p>Active: Boolean - executes a query if "True" is set;</p><p>Host: String - host name or host IP address; "127.0.0.1" by default;</p><p>Port: Integer - host port, "80" by default;</p><p>ProxyHost: String - HTTP-proxy name or proxy IP address;</p><p>ProxyPort: Integer - proxy port;</p><p>RetryCount: Integer - retry count, default - 3;</p><p>RetryTimeOut: Integer - delay between retry in seconds, default - 5;</p><p>TimeOut: Integer - idle time in seconds, default - 30;</p><p>ClientFields: TfrxHTTPClientFields - fields the request's header; TfrxHTTPClientFields is described below;</p><p>ServerFields: TfrxHTTPServerFields - parsed answer header; TfrxHTTPServerFields is described below;</p><p>MIC: Boolean - checking the message's integrity checksum, "True" by default;</p><p>Header: TStrings - raw request header; it is filled in automatically from ClientFields;</p><p>Answer: TStrings - raw answer header, parsed fields will be stored in ServerFields;</p><p>Stream: TMemoryStream - data received from server;</p><p>Breaked: Boolean - sign of emergency disconnection;</p><p>Errors: TStrings - errors list.</p><p><strong><em>Methods:</em></strong></p><p>procedure Connect - connect to remote server and get the file, after disconnect;</p><p>procedure Disconnect - disconnect from server;</p><p>procedure Open -same as "Connect";</p><p>procedure Close - same as "Disconnect".</p><p><strong>TfrxHTTPClientFields class inherited from TPersistent</strong></p><p><strong><em>Properties:</em></strong></p><p>AcceptEncoding: String - accepted compression formats, default - 'gzip';</p><p>FileName: String - requested filename;</p><p>Host: String - address or client's hostname; fills automatically if empty;</p><p>HTTPVer: String - http protocol version, default - 'HTTP/1.1';</p><p>Login: String - user name for authentication;</p><p>Password: String - password for authentication;</p><p>QueryType: TfrxHTTPQueryType - query type, qtGet - GET query, qtPost - POST query; "qtGet" by default;</p><p>Referer: String - referencing document name; blank by default;</p><p>UserAgent: String - client program name, default - 'FastReport/3.0'.</p><p><strong>TfrxHTTPServerFields class inherited from TPersistent</strong></p><p><strong><em>Properties:</em></strong></p><p>AnswerCode: Integer - server response code;</p><p>ContentEncoding: String - received data compression format;</p><p>ContentMD5: String - MD5 checksum;</p><p>ContentLength: Integer - received data length;</p><p>Location: String - actual location of the document.</p>
+</FONT>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="TfrxReportClient.htm">< previous page</a>
+</td>
+<td>
+<a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="../The Report server/The Report server.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</font>
+
+
+</BODY>
+</html>

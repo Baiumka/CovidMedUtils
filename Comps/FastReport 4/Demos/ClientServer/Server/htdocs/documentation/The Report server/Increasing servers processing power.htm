@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.12. Increasing server's processing power</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="faster,memory,false,configuration,tfrxreportserver,checksum,developing,formats,other,export,perform,response,reducing,allows,format,native,works,application,client,tfrxreportclient,scripts,complex,traffic,network,reports,bitmaps,resolution,execution,longer,query,running,cases,queries,optimize,slows,considerably,tfrxgzipcompressor,component,compression,performance,report,increase,recommendations,following,processing,server,increasing" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.12. Increasing server's processing power</font>
+<FONT FACE="Arial" SIZE=2>
+<p>Use the following recommendations to increase the report server performance:</p><p>- do not use compression component (TfrxGZipCompressor). It considerably slows down the server;</p><p>- optimize your SQL queries. In some cases running the SQL query may take a longer time than the report execution;</p><p>- do not use high-resolution bitmaps in your reports - it will increase the report execution time and network traffic;</p><p>- do not use complex scripts in your reports;</p><p>- use TfrxReportClient component in your client application. It works with FP3 native format and allows reducing the server response time (server does not perform the export to HTML or other formats) and the network traffic.</p><p>- when developing a report, keep in mind recommendations from <a href="../Developing%20the%20reports/Some%20advices%20concerning%20the%20design%20of%20a%20report.htm">4.2</a>;</p><p>- turn off the checksum, TfrxReportServer.Configuration.MIC := False;</p><p>- increase the memory size, use the faster CPU on PC used as a report server.</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Using the reports cache.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Using the FastReport server together with other HTTP servers (Apache, IIS, etc).htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

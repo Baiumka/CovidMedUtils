@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.13. Using the FastReport server together with other HTTP servers (Apache, IIS, etc)</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="multipage,launch,missed,manual,application,configure,folder,wrapper,example,results,query,computers,reports,built,possible,already,apache,servers,other,server,fastreport,using" >
+<style>
+.text {font-family: Courier; font-size: 12px; color: #000080;}
+</style>
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.13. Using the FastReport server together with other HTTP servers (Apache, IIS, etc)</font>
+<FONT FACE="Arial" SIZE=2>
+<p>To use already existing solutions based on other HTTP servers, their integration with the FastReport server is possible by means of the "CGI" mechanism. It gives an advantage in comparison with using a built-in HTTP server FastReport. Reports can be built in an already-working system (site). HTTP server and a server of reports can work on different computers. Usage "SSL" encoding for operation with HTTP a server is possible (this possibility is unavailable in HTTP server FastReport yet).</p><p>Applying such method, CGI becomes an intermediate for tranfering a query to the "FastReport" server, obtaining results from a server of reports, and return of the results to the client.</p><p><img src="../image/freepm_035.gif" width="487" height="286" border="0"></p><p>You can found example of CGI wrapper in the "Demos\ClientServer\CGI" folder.</p><p><strong>To us the CGI wrapper:</strong></p><p><li>compile and copy file fastreport.exe to the folder /cgi-bin of the HTTP server;</li></p><p><li>configure the  HTTP server (Apache, IIS or other) to execute the CGI application. Read more about this in HTTP server user manual;</li></p><p><em>If HTTP and reports servers work on same computer:</em></p><p><li>if TCP/IP port 80 is used by HTTP server configure the FastReport server on other port 8097 (this port is used by CGI application by default if configuration file is missed), if you want to use other TCP/IP port, read below about using the configuration file of the CGI application;</li></p><p><em>If HTTP and FastReport servers work on separate computers:</em></p><p><li>create the configuration file of the CGI application in folder /cgi-bin with name fastreport.ini:</li></p><p class="text">[REPORTSERVER]</p><p class="text">; IP address of the FastReport server</p><p class="text">Host=192.168.0.34</p><p class="text">; IP port of the FastReport server</p><p class="text">Port=80</p><p><li>launch the FastReport server and check work of the CGI application.</li></p><p>Report query example with using of CGI application:<br><a href="http://127.0.0.1/cgi-bin/fastreport.exe?report=67.fr3&amp;multipage=0&amp;pagenav=0">http://127.0.0.1/cgi-bin/fastreport.exe?report=67.fr3&amp;multipage=0&amp;pagenav=0</a></p><p>Read more about query line syntax in <a href="Query%20syntax.htm">3.3 topic</a>. Replace the "result" keyword in this point at "cgi-bin/fastreport.exe" construction.</p><p>Attention: to restrict direct access to the report server from clients, it is necessary to specify an IP address of the HTTP server, on which CGI application works (127.0.0.1 or other).</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Increasing servers processing power.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="../Developing the reports/Developing the reports.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

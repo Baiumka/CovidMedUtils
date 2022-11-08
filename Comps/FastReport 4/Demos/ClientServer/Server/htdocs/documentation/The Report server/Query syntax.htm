@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.3. Query syntax</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="acrobat,adobe,available,browser,client,contain,correct,default,displaying,enable,example,excel,fastreport,format,formats,frames,generated,image,inaccessible,internal,javascript,multipage,navigator,option,ordinary,pagenav,pagerange,pages,param,parameter,parameters,prepared,presented,query,range,report,required,result,resulting,setting,several,single,support,table,using,value" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.3. Query syntax</font>
+<FONT FACE="Arial" SIZE=2>
+<p>When using an ordinary web-browser as a client, 
+you can use parameters of the query line:</p><p><strong>report=<i>name</i></strong></p>
+<p><i>name</i>  - name of the report available on server</p><p>Example: <i>/report=1.fr3
+</i>  (query report 1.fr3, resulting format - HTML).</p>
+<p><strong>format=<i>name</i></strong></p>
+<p><i>name</i> - format of the required file, available formats: <b>HTM</b> (HTML), 
+<b>XML</b> (xml table), <b>XLS</b> (Excel table), <b>RTF</b> (rich-text document), 
+<b>TXT</b> (text file), <b>PDF</b>(Adobe Acrobat file), <b>JPG</b> (jpeg image), 
+<b>FRP</b> (internal FastReport prepared report format).</p>
+<p>By default format is <b>HTM</b> (HTML).</p><p>Example: <i>/report=1.fr3&format=TXT</i> 
+(query report 1.fr3, resulting format - text file).</p>
+<p><strong>pagerange=<i>value</i></strong></p>
+<p><i>value</i> - result page range (for FRP this option is inaccessible).</p>
+<p>Example of the page range: 1,3,5-12.</p><p>
+Example of the query line: <i>/report=3.fr3&pagerange=20-25</i> 
+(query report 3.fr3, pages from 20 to 25, resulting format - HTML).</p>
+<p><strong>multipage=param</strong></p>
+<p>Only for HTM format. If param value is "1", then the resulting report 
+will be presented as several pages (one file on each page). 
+If param set as "0", then a single resulting page will be 
+generated that will contain all report pages. 
+Default parameter value setting is "1".</p>
+<p>Example: <i>/report=3.fr3&multipage=0</i> 
+(query report 3.fr3, resulting format - HTML, 
+all pages on one HTML page).</p>
+<p><strong>pagenav=<i>param</i></strong></p>
+<p>Only for HTM format. To enable page navigator, set param value as "1". 
+If param value is "0", then page navigator is off. 
+For correct page displaying, use web-browser 
+with javascript and frames support. Default setting of this parameter is "1".</p>
+<p>Example: <i>/report=9.fr3&multipage=0&pagenav=0</i> 
+(query report 9.fr3, resulting format - HTML, 
+all result pages on one HTML page, page navigator is off).</p>
+</FONT>
+
+</td>
+</tr>
+<tr>
+<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Supported formats of the report results.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Transferring parameters to the report.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>4.1. Some client/server restrictions</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="components,access,common,should,forms,dialogue,handlers,event,cannot,reports,server,client" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>4.1. Some client/server restrictions</font>
+<FONT FACE="Arial" SIZE=2>
+<p>When developing reports for client-server application, please remember that:</p><p>- you cannot use script event handlers for dialogue forms' controls since dialogue forms are displayed as web forms in the browser;</p><p> - you cannot use event handlers of the TfrxReportClient component (for example, OnGetValue, OnUserFunction). All such handlers should be on the server side;</p><p>- you cannot use common data access components, such as TfrxDBDataSet (common components cannot be simultaneously used by several reports). Each report should have internal data access components, such as TfrxIBXTable, Query, and so on.</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Developing the reports.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Some advices concerning the design of a report.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</BODY>
+</html>

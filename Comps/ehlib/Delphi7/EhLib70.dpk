@@ -1,0 +1,58 @@
+package EhLib70;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'EhLib 3.6'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  dbrtl,
+  vcldb,
+  vclx;
+
+contains
+  DBSumLst in '..\Common\DBSumLst.pas',
+  PrnDbgeh in '..\Common\PrnDbgEh.pas',
+  PrnDGDlg in '..\Common\PrnDGDlg.pas' {fPrnDBGridEHSetupDialog},
+  PrntsEh in '..\Common\PrntsEh.pas',
+  PrvFrmEh in '..\Common\PrvFrmEh.pas' {PreviewFormEh},
+  PrViewEh in '..\Common\PrViewEh.pas',
+  DBGridEh in '..\Common\DBGridEh.pas',
+  DBGridEhImpExp in '..\Common\DBGridEhImpExp.pas',
+  DBLookupEh in '..\Common\DBLookupEh.pas',
+  DBCtrlsEh in '..\Common\DBCtrlsEh.pas',
+  ToolCtrlsEh in '..\Common\ToolCtrlsEh.pas',
+  EhLibConsts in '..\Common\EhLibConsts.pas',
+  DBLookupGridsEh in '..\Common\DBLookupGridsEh.pas',
+  CalculatorEh in '..\Common\CalculatorEh.pas' {CalculatorEh},
+  DbUtilsEh in '..\Common\DbUtilsEh.pas',
+  PropStorageEh in '..\Common\PropStorageEh.pas',
+  PropFilerEh in '..\Common\PropFilerEh.pas',
+  DBGridEhFindDlgs in '..\Common\DBGridEhFindDlgs.pas' {DBGridEhFindDlg},
+  EhLibVCL in '..\Common\EhLibVCL.pas',
+  ColumnEdit in '..\Common\ColumnEdit.pas' {frmColumnEdit};
+
+end.

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>3.4. Transferring parameters to the report</title>
+<meta name="keywords" content="automatically,tfrxreportclient,contained,variables,script,these,please,frxserverutils,declared,htmlcodestr,untf8encode,function,standard,compatible,format,unicode,converted,strings,transferred,concerning,restrictions,below,world,setting,query,20world,hello,param1,myreport,example,variable,fastreport,internal,report,building,interprets,server,above,listed,request,presented,other,parameters,transferring" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>3.4. Transferring parameters to the report</font>
+<FONT FACE="Arial" SIZE=2>
+<p>If other parameters are presented in the request line (not listed above), then server interprets them as parameters for building a report as internal FastReport variable.</p><p><b>Example:</b></p><p>/report=myreport.fr3&amp;param1=Hello%20World! (query report "myreport.fr3", FastReport variable "param1" setting is "Hello World!")</p><p><em>Below are some restrictions concerning parameters transferred:</em></p><p>- all strings can be converted in Unicode UTF-8 format and can be compatible with HTTP query standard (use of standard function Untf8Encode and function HTMLCodeStr declared in frxServerUtils.pas file);</p><p>- all parameters are transferred to report as strings. Please keep in mind this when you use these parameters in the report script;</p><p>- all variables contained in TfrxReportClient.Variables are automatically sent to the server.</p>
+</FONT>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Query syntax.htm">< previous page</a>
+</td>
+<td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="Internal server variables.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</FONT>
+</BODY>
+</html>

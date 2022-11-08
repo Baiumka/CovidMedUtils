@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head><title>2.1. TfrxReportServer</title>
+<meta name="author" content="Alexander Fediachov fediachov@fast-report.com" >
+<meta name="copyright" content="Copyright (c) 1998-2005 by Fast Reports Inc" >
+<meta name="keywords" content="totalerrors,maxsessionscount,simultaneously,maximum,sessions,defaultcachelatency,support,documents,compression,password,rootpath,reportpath,после,deleted,expires,seconds,field,connection,number,programmer,details,query,transferred,tfrxvariables,const,directly,received,parameters,tfrxservergetvariablesevent,requested,tfrxreport,string,reportname,handler,files,reports,tfrxservergetreportevent,procedure,methods,tfrxservervariables,variables,information,statistics,tfrxserverstatistic,object,default,browser,print,allowed,empty,connect,forbidden,client,cases,address,contains,following,format,addresses,tstrings,changes,below,described,tfrxserverconfig,configuration,setting,which,value,boolean,active,properties,inherited,class,server,report,component,tfrxreportserver" >
+	
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="92%">
+<tr>
+	<td  height="97%" valign="top">
+
+<FONT FACE="Arial" SIZE=4>2.1. TfrxReportServer</font>
+<FONT FACE="Arial" SIZE=2>
+<p><img src="../image/freepm_004.png" width="24" height="24" border="0">&nbsp;TfrxReportServer component plays the role of 
+a report server and HTTP server. This component does not require any additional components.</p>
+<p><strong>TfrxReportServer class inherited from TComponent</strong></p>
+<p><strong><em>Properties:</em></strong></p>
+<p>Active: Boolean - the value, which indicates activity of the server. 
+It may be used for starting the server by setting a value in "True";</p><p>Configuration: TfrxServerConfig - server configuration (TfrxServerConfig class is described below). Configuration changes become active only after you restart the server;</p><p>AllowIP: TStrings - list of authorized IP addresses. The format of the list is as following: one line contains one IP address. In cases when the server does not find a client's address in this list, the client will be forbidden to connect; if the list is empty, all addresses are allowed to connect;</p><p>DenyIP: TStrings  - list of IP addresses forbidden to connect. The format of the list is as following: one line contains one IP address In cases when the server does not find a client's address in this list, the client will be forbidden to connect; if the list is empty, all addresses are allowed to connect;</p><p>PrintPDF: Boolean - pressing the "print" button in navigator's control panel (when viewing the resulting pages in a web browser) creates a PDF file, if this value is set to True. Otherwise, standard print action of the browser will be executed. Default setting is "True";</p><p><em>The following properties are inaccessible in object's inspector, but it is possible to access them from the code:</em></p><p>Statistic: TfrxServerStatistic - server statistics (TfrxServerStatistic is described below);</p><p>Totals: TStrings - readable form of server statistics information;</p><p>Variables: TfrxServerVariables - internal server variables (TfrxServerVariables is described below).</p><p><strong><em>Methods:</em></strong></p><p>constructor Create(AOwner: TComponent) - creation of an object;</p><p>procedure Open - startup of the server. At this moment all changes of configuration would be activated;</p><p>procedure Close - server shutdown;</p><p><strong><em>Event handlers:</em></strong></p><p>OnGetReport: TfrxServerGetReportEvent - may be used for loading the reports from any places (BLOB fields, files from any folders etc). Type of the handler:</p><p>TfrxServerGetReportEvent = procedure (ReportName: String; Report: TfrxReport) of object;</p><p>ReportName - name of the requested report; it may be used for identification of a specific report;</p><p>Report - an instance of the TfrxReport object, to which the report should be loaded.</p><p>OnGetVariables: TfrxServerGetVariablesEvent - can be used for manual processing of the parameters received from the client, as well as execution of any operations directly on a server.</p><p>TfrxServerGetVariablesEvent = procedure(const ReportName: String; Variables: TfrxVariables) of object;</p><p>ReportName - The name of the report transferred in query. It can be used for filtering one or another parameter directly in the handler;</p><p>Variables - The list of the parameters received from the client. See details about TfrxVariables in 
+<a href="">"Programmer's guide FastReport 3" [8]</a>.</p><p><strong>TfrxServerConfig class inherited from TPersistent</strong></p><p>Object of this class contains information about server configuration.</p><p><strong><em>Properties:</em></strong></p><p>Port: Integer - TCP/IP port number for client connection, default value is 80;</p><p>IndexFileName: String - default filename, if the filename field in HTTP query is empty. Default value is 'index.html';</p><p>SessionTimeOut: Integer - time of storing report results on the server (in seconds). Default value is 300. As soon as the default time expires, the report results will be deleted. It is set depending on specificities of created reports and methods of client-server interaction;</p><p>время ожидания активности клиента после его подключения в секундах, по умолчанию равно 60, по истечении этого времени сессия клиента будет удалена;</p><p>SocketTimeOut: Integer - timeout of waiting for client's response (in seconds). Default value is 60. When time expires, the session will be terminated.</p><p>Logging: Boolean - log writing, "True" - enabled, "False" - disabled, "True" is set by default;</p><p>LogPath: String - path to folder with logs; current folder by default;</p><p>ReportPath: String - path to folder with reports; current folder by default;</p><p>RootPath: String - path to folder with HTML files and reports results;</p><p>Login: String - user name for authentication. If line is empty - authentication is not required. Empty line is a default setting;</p><p>Password: String - password for authentication, empty line by default;</p><p>Compression: Boolean - compression of transferred documents, client support required; "True" by default;</p><p>MIC: Boolean - Message Integrity Checksum using MD5 algorithm. "True" by default;</p><p>NoCacheHeader: Boolean - document is not cached by client, "True" by default;</p><p>OutputFormats: TfrxServerOutputFormats - supported formats for requested reports, one or more from set (sfHTM, sfXML, sfXLS, sfRTF, sfTXT, sfPDF, sfJPG, sfFRP). By default, all elements of set are included;</p><p>ReportCaching: Boolean - enable the reports cache on a server (see details in <a href="../The%20Report%20server/Using%20the%20reports%20cache.htm" targer=frame2>section 3.11</a>);</p><p>ReportCachePath: String - path to a folder with reports cache;</p><p>DefaultCacheLatency: Integer - reports in cache default storage time (in seconds).</p><p><strong><em>Methods:</em></strong></p><p>procedure LoadFromFile(const FileName: String) - load configuration from a file;</p><p>procedure SaveToFile(const FileName: String) - save configuration to a file.</p><p><strong>TfrxServerStatistic class inherited from TPersistent</strong></p><p><strong><em>Properties:</em></strong></p><p>CurrentReportsCount: Integer - number of reports currently build;</p><p>CurrentSessionsCount: Integer - number of sessions currently connected;</p><p>MaxReportsCount: Integer - maximum number of reports simultaneously built;</p><p>MaxSessionsCount: Integer - maximum number of sessions simultaneously connected;</p><p>TotalErrors: Integer - number of errors;</p><p>TotalReportsCount: Integer - number of reports;</p><p>TotalSessionsCount: Integer - number of sessions;</p><p>UpTimeDays: Integer (days),</p><p>UpTimeHours: Integer (hours),</p><p>UpTimeMins: Integer (minutes),</p><p>UpTimeSecs: Integer (seconds) - up time of the report server.</p><p><strong>TfrxServerVariables class inherited from TCollection</strong></p><p>Contains server variables.</p><p>Used (reserved) names of the variables will describe in the <a href="../The%20Report%20server/Transferring%20parameters%20to%20the%20report.htm">part 3.4.</a></p><p><strong><em>Methods:</em></strong></p><p>function GetValue(const Name: String): String - returns value of the variable with Name;</p><p>procedure AddVariable(const Name: String; const Value: String) - adds a variable with Name and Value.</p>
+</font>
+</td>
+</tr>
+<tr>
+	<td  height="3%" align="center" valign="bottom"></td>
+</tr>
+</table>
+
+<hr>
+<FONT FACE="Arial">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="5"></td>
+<td align=left>
+<a href="Components of FastReport Enterprise Edition.htm">< previous page</a>
+</td>
+<td><a href="../index.html" align="center" target=_top>main page</a>
+</td>
+<td align=right>
+<a href="TfrxServerConnection.htm">next page ></a>
+</td>
+<td width="5"></td>
+</table>
+</font>
+
+
+</BODY>
+</html>
